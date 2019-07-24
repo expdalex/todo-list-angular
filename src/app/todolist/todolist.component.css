@@ -1,0 +1,109 @@
+*{
+    box-sizing: border-box;
+}
+ul{
+    margin: 0;
+    padding: 0;
+}
+ul li{
+    position: relative;
+    padding: 12px 8px 12px 40px;
+    background: #eee;
+    font-size: 18px;
+    user-select: none;
+    list-style-type: none;
+}
+
+ul li.checked{
+    background: #888;
+    color: #fff;
+    text-decoration: line-through;
+}
+ul li.checked::before{
+    content: '';
+    position: absolute;
+    border-color: #fff;
+    border-style: solid;
+    border-width: 0 2px 2px 0;
+    top: 10px;
+    left: 16px;
+    height: 15px;
+    width: 7px;
+    transform: rotate(45deg);
+}
+.close{
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 12px 16px;
+}
+.close:hover{
+    background-color: #f44336;
+    color: white;
+}
+.description-btn{
+    position: absolute;
+    right: 39px;
+    top: 0px;
+    padding: 12px 16px;
+}
+.description-btn:hover{
+    background-color:burlywood;
+    color: white;
+}
+.checked-btn{
+    position: absolute;
+    right: 160px;
+    top: 0px;
+    padding: 12px 16px;
+}
+.checked-btn:hover{
+    background-color:burlywood;
+    color: white;
+}
+.edit-btn{
+    position: absolute;
+    right: 255px;
+    top: 0px;
+    padding: 12px 16px;
+}
+.edit-btn:hover{
+    background-color:burlywood;
+    color: white;
+}
+.up-btn{
+    position: absolute;
+    right: 320px;
+    top: 0px;
+    padding: 12px 16px;
+}
+.up-btn:hover{
+    background-color:burlywood;
+    color: white;
+}
+.down-btn{
+    position: absolute;
+    right: 375px;
+    top: 0px;
+    padding: 12px 16px;
+}
+.down-btn:hover{
+    background-color:burlywood;
+    color: white;
+}
+.btn{
+    background-color: aquamarine;
+    padding: 5px 20px;
+}
+.btn:hover{
+    background-color: aqua;
+}
+li{
+    text-align: left;
+  }
+.delete-task{
+    display: none;
+}
+.time{
+    border: 1px solid red;
+}

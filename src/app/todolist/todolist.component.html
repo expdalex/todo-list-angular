@@ -1,0 +1,34 @@
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <input type="text" id="header" placeholder="header" formControlName="header">
+  <input type="text" id="description" placeholder="description" formControlName="description">
+  
+  <button 
+    type="submit"
+    class="btn" 
+    style="border-radius: 0.25rem;"
+    [disabled]="form.invalid"
+  >   
+    Отправить
+  </button>
+</form>
+
+<ul id="myUl" style="margin-top: 20px">
+  <li *ngFor="let t of tasksNew" [ngClass]="{'time': d > t.date + 259200000}" >
+    {{t.date | date:'dd-MMM-yyyy hh:mm:ss'}} {{t.header}}
+    <span class="close" (click)="deleteTask(t.id)">
+      x
+    </span>
+    <span class="checked-btn" (click)="checked(t)">Checked</span>
+    <span class="description-btn" (click)="showDescription(t)">Description</span>
+    <span class="edit-btn" (click)="updateTask(t)">Edit</span>
+    <span class="up-btn" (click)="upTask(t)">Up</span>
+    <span class="down-btn" (click)="downTask(t)">Down</span>
+    <div *ngIf="t.id === descNum && showDesc" >{{t.description}}</div>
+  </li>
+</ul>
+<hr>
+<ul id="myCheckedUl">
+      <li *ngFor="let c of checkedTasks" class="checked" (click)="unchecked(c)">{{c.date | date:'dd-MMM-yyyy'}} {{c.header}}</li>
+</ul>
+  
