@@ -1,12 +1,25 @@
 
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
-  <input type="text" id="header" placeholder="header" formControlName="header">
-  <input type="text" id="description" placeholder="description" formControlName="description">
+  <div>
+    <label for="header" style="margin-right: 49px;">Header</label>
+    <input type="header" id="header" formControlName="header">
+    <span *ngIf="form.get('header').invalid && form.get('header').touched" class="form-help-header">
+      <span *ngIf="form.get('header')['errors']['required']">Header cannot be empty</span>
+    </span>
+  </div>
+
+  <div>
+    <label for="description" style="margin-right: 20px;">Description</label>
+    <input type="description" id="description" formControlName="description">
+    <span *ngIf="form.get('description').invalid && form.get('description').touched" class="form-help-desc">
+        <span *ngIf="form.get('description')['errors']['required']">Description cannot be empty</span>
+    </span>
+  </div>
   
   <button 
     type="submit"
     class="btn" 
-    style="border-radius: 0.25rem;"
+    style="border-radius: 0.25rem; margin-left: 30px;"
     [disabled]="form.invalid"
   >   
     Отправить
@@ -14,21 +27,8 @@
 </form>
 
 <ul id="myUl" style="margin-top: 20px">
-  <li *ngFor="let t of tasksNew" [ngClass]="{'time': d > t.date + 259200000}" >
-    {{t.date | date:'dd-MMM-yyyy hh:mm:ss'}} {{t.header}}
-    <span class="close" (click)="deleteTask(t.id)">
-      x
-    </span>
-    <span class="checked-btn" (click)="checked(t)">Checked</span>
-    <span class="description-btn" (click)="showDescription(t)">Description</span>
-    <span class="edit-btn" (click)="updateTask(t)">Edit</span>
-    <span class="up-btn" (click)="upTask(t)">Up</span>
-    <span class="down-btn" (click)="downTask(t)">Down</span>
-    <div *ngIf="t.id === descNum && showDesc" >{{t.description}}</div>
-  </li>
+  <app-task *ngFor="let t of tasksNew" [task]="t" [tasks]="tasksNew"(onUpdateTask)="updateTaskList($event)"></app-task>
+  
 </ul>
-<hr>
-<ul id="myCheckedUl">
-      <li *ngFor="let c of checkedTasks" class="checked" (click)="unchecked(c)">{{c.date | date:'dd-MMM-yyyy'}} {{c.header}}</li>
-</ul>
+
   

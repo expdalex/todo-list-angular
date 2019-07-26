@@ -5,7 +5,8 @@ ul{
     margin: 0;
     padding: 0;
 }
-ul li{
+
+li{
     position: relative;
     padding: 12px 8px 12px 40px;
     background: #eee;
@@ -14,12 +15,12 @@ ul li{
     list-style-type: none;
 }
 
-ul li.checked{
+li.checked{
     background: #888;
     color: #fff;
     text-decoration: line-through;
 }
-ul li.checked::before{
+li.checked::before{
     content: '';
     position: absolute;
     border-color: #fff;
@@ -53,7 +54,7 @@ ul li.checked::before{
 }
 .checked-btn{
     position: absolute;
-    right: 160px;
+    right: 155px;
     top: 0px;
     padding: 12px 16px;
 }
@@ -61,9 +62,19 @@ ul li.checked::before{
     background-color:burlywood;
     color: white;
 }
+.unchecked-btn{
+    position: absolute;
+    right: 250px;
+    top: 0px;
+    padding: 12px 16px;
+}
+.unchecked-btn:hover{
+    background-color:burlywood;
+    color: white;
+}
 .edit-btn{
     position: absolute;
-    right: 255px;
+    right: 360px;
     top: 0px;
     padding: 12px 16px;
 }
@@ -73,7 +84,7 @@ ul li.checked::before{
 }
 .up-btn{
     position: absolute;
-    right: 320px;
+    right: 420px;
     top: 0px;
     padding: 12px 16px;
 }
@@ -83,7 +94,7 @@ ul li.checked::before{
 }
 .down-btn{
     position: absolute;
-    right: 375px;
+    right: 475px;
     top: 0px;
     padding: 12px 16px;
 }
@@ -106,4 +117,12 @@ li{
 }
 .time{
     border: 1px solid red;
+}
+.form-help-header{
+    display: block;
+    margin-left: 76px;
+}
+.form-help-desc{
+    display: block;
+    margin-left: 105px;
 }

@@ -1,0 +1,12 @@
+<li [ngClass]="{'time': d > task.date + 259200000, 'checked': task.checked }">
+  {{ task.date | date:'dd-MMM-yyyy hh:mm:ss' }} {{ task.header }}
+  <span class="close" (click)="deleteTask(task.id)">x</span>
+  <span class="checked-btn" (click)="checked(task)">Checked</span>
+  <span class="unchecked-btn" (click)="unchecked(task)">Unchecked</span>
+  <span class="description-btn" (click)="showDescription(task)">Description</span>
+  <span class="edit-btn" (click)="updateTask(task)">Edit</span>
+  <span class="up-btn" (click)="upTask(task)">Up</span>
+  <span class="down-btn" (click)="downTask(task)">Down</span>
+  <div *ngIf="task.id === descNum && showDesc" >{{task.description}}</div>
+</li>
+

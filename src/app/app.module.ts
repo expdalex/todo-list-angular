@@ -6,19 +6,26 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { TodolistComponent } from './todolist/todolist.component';
 import { TaskService } from './shared/services/task.service';
+import { TaskComponent } from './task/task.component';
+import { EditTaskComponent } from './edit-task/edit-task.component';
+import { AppRoutingModule } from './app-routing.module';
+import { TaskResolver } from './shared/services/task-resolver.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TodolistComponent
+    TodolistComponent,
+    TaskComponent,
+    EditTaskComponent
   ],
   imports: [
     FormsModule,
     BrowserModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AppRoutingModule
   ],
-  providers: [TaskService],
+  providers: [TaskService, TaskResolver],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

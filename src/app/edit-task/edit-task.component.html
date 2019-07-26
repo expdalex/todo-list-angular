@@ -1,0 +1,40 @@
+<h2>EditTask Page</h2>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <h3>
+      <p>Header task: {{task.header}}</p>
+      <p>Header description: {{task.description}}</p>
+      <p>Header order: {{task.order}}</p>
+    </h3>
+    
+    <div>
+      <label for="header" style="margin-right: 49px;">Input new header</label>
+      <input type="header" id="header" formControlName="header">
+      <span *ngIf="form.get('header').invalid && form.get('header').touched" class="form-help-header">
+        <span *ngIf="form.get('header')['errors']['required']">Header cannot be empty</span>
+      </span>
+    </div>
+  
+    <div>
+      <label for="description" style="margin-right: 20px;">Input new description</label>
+      <input type="description" id="description" formControlName="description">
+      <span *ngIf="form.get('description').invalid && form.get('description').touched" class="form-help-desc">
+          <span *ngIf="form.get('description')['errors']['required']">Description cannot be empty</span>
+      </span>
+    </div>
+    
+    <button 
+      type="submit"
+      class="btn" 
+      style="border-radius: 0.25rem; margin-left: 30px;"
+      [disabled]="form.invalid"
+    >   
+      Отправить
+    </button>
+    <button  
+      class="btn" 
+      (click)="cancel()" 
+      style="border-radius: 0.25rem; margin-left: 30px;"
+    >
+      Отменить
+    </button>
+  </form>

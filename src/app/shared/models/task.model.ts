@@ -3,6 +3,8 @@ export class Task{
         public date: any,
         public header: string,
         public description: string,
+        public checked: boolean,
+        public order: number,
         public id?: number
     ) {}
 }
